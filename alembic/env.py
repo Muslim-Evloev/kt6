@@ -5,6 +5,10 @@ from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 from alembic import context
 
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 from app.database import Base
 from app.models import User, Task  # noqa: F401 — регистрация моделей
 from app.config import get_settings
